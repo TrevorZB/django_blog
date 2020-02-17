@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block head_title %} {{ head_title }} {% endblock %}
+
+
+{% block main_head %} {{ main_head }} {% endblock %}
+
+
+{% block content %}
+
+    {% for article in object_list %}
+
+        {% include 'list-inline.html' with article_post=article truncate=True list=True %}
+
+    {% endfor %}
+
+{% endblock %}

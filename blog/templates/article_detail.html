@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ head_title }} {% endblock %}
+
+
+{% block content %}
+
+    {% include 'list-inline.html' with article_post=article detail=True %}
+
+{% if request.user.is_superuser or request.user == article.author %}
+    <button class="btn btn-primary"><a style="color:white;" href="./edit">Edit</a></button>
+    <button class="btn btn-danger"><a style="color:white;" href="./delete">Delete</a></button>
+{% endif %}
+
+{% endblock %}

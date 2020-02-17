@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ head_title }} {% endblock %}
+
+{% block main_head %} {{ main_head }} {% endblock %}
+
+{% block content %}
+
+<h2>Interested in the most viewed article?</h2>
+{% include 'list-inline.html' with article_post=article truncate=True home=True %}
+
+{% endblock %}

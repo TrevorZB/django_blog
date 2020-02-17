@@ -1,0 +1,40 @@
+
+<div class="card mt-md-2 {% if not article_post.publish_date %} border border-warning {% else %} border border-dark {% endif %}">
+  <div class="card-header">
+    Views: {{ article_post.num_views }}
+  </div>
+  <div class="card-body">
+
+    <h5 class="card-title">{{ article_post.title }}</h5>
+
+    <p class="card-text">
+
+    <small class="text-muted">
+
+      {% if not article_post.publish_date %}
+        Not Published Yet
+      {% else %}
+        {{ article_post.publish_date }}
+      {% endif %}
+
+      </small>
+
+    {% if truncate %}
+      {{ article_post.passage|linebreaks|truncatewords:25 }}
+    {% else %}
+      {{ article_post.passage|linebreaks }}
+    {% endif %}
+
+    </p>
+
+    {% if home %}
+      <a href="articles/{{ article_post.get_absolute_url }}" class="btn btn-primary">Read More</a>
+    {% endif %}
+
+    {% if list %}
+      <a href="{{ article_post.get_absolute_url }}" class="btn btn-primary">Read More</a>
+    {% if not article_post.publish_date %} <div class="text-right">Draft</div> {% endif %}
+    {% endif %}
+
+  </div>
+</div>

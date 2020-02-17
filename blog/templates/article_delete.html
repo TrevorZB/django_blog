@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{ head_title }} {% endblock %}
+
+{% block main_head %} {{ main_head }} {% endblock %}
+
+{% block content %}
+
+<p>Are you sure you would like to delete the following article:</p>
+<p>{{ article.title }}</p>
+
+<form method="POST"> {% csrf_token %}
+
+    <button class="btn btn-danger">Yes, delete</button>
+
+</form>
+
+<a href="." class="btn btn-primary">Cancel</a>
+
+{% endblock %}
